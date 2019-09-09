@@ -159,4 +159,4 @@ class Exchangerate(models.Model):
         ordering = ['currency_from', 'date_valid_from',]
         unique_together = ['currency_from', 'currency_to', 'date_valid_from']
     def __str__(self):
-        return u"{0}".format(self.code)
+        return u"{0}-{1}-{2}".format(self.currency_from,self.currency_to,self.date_valid_from)
