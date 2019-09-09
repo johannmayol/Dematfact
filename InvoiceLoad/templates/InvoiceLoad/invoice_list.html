@@ -1,0 +1,8 @@
+<h1>Factures</h1>
+<ul>
+{% for article in object_list %}
+    <li>{{ articleinvoice.date }} - {{ invoice.number }}</li>
+{% empty %}
+    <li>Pas de facture existante.</li>
+{% endfor %}
+</ul>

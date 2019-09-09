@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<H1>Invoice detail</H1>
+
+<div class=container>
+	<p>Status: {{ object.status }}</p>
+	<p>Creation date : {{ object.created_date }}</p>
+	<p>Supplier : {{ object.supplier }}</p>
+	<p>Number : {{ object.inv_number }}</p>
+	<p>Date : {{ object.date }}</p>
+	<p>PO Number : {{ object.po_number }}</p>
+	<p>Currency : {{ object.currency }}</p>
+	<p>Gross : {{ object.gross }}</p>
+	<p>Net : {{ object.net }}</p>
+	<p>Tax : {{ object.tax }}</p>
+</div>
+
+<div class=container>
+	{{ object.image.path }}
+	<a href={{ object.image.url }}>Download PDF</a>
+
+	<object data={{ object.image.url }}  type="application/pdf" width="100%" height="100%">
+		<iframe src={{ object.image.url }} style="border: none;" width="100%" height="100%">
+		This browser does not support PDFs. Please download the PDF to view it: 
+		<a href={{ object.image.url }}>Download PDF</a>
+		</iframe>
+	</object>
+</div>
+
+<div class=container>
+<p>Imputations: {{ object.imputations }}</p>
+</div>
+
+<!-- <embed src="http://example.com/the.pdf" width="500" height="375" 
+ type="application/pdf"> -->
+
+{% endblock %}
